@@ -1,0 +1,10 @@
+mat-toolbar {
+  color: #FFD733;
+  background-color: gold;
+}
+button {
+  margin: 1rem;
+}
+span{
+  color: black;
+}
