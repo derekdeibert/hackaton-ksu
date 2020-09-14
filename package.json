@@ -20,7 +20,9 @@
     "@angular/material": "^10.2.0",
     "@angular/platform-browser": "~10.1.0",
     "@angular/platform-browser-dynamic": "~10.1.0",
-    "@angular/router": "~10.1.0",
+    "@angular/router": "^10.1.1",
+    "angular-material": "^1.2.0",
+    "angular-material-expansion-panel": "^0.7.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
