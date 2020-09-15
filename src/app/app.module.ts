@@ -15,12 +15,17 @@ import {AppRoutingModule} from './app.routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {InfoComponent} from './info/info.component';
+import {LoginComponent} from './login/login.component';
+import {TeamsComponent} from './teams/teams.component';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
   {path: 'register', component: RegistrationComponent},
+  {path: 'info', component: InfoComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'teams', component: TeamsComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
-  
 ];
 
 @NgModule({
