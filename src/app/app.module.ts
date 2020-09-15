@@ -19,6 +19,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
   {path: 'register', component: RegistrationComponent},
+  { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
   
 ];
 
