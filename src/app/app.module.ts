@@ -6,18 +6,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatButtonModule } from '@angular/material/button';
 import {HomepageComponent} from './homepage/homepage.component';
-import {RegistrationComponent} from './registration/registration.component';
-import {RegistrationService} from './services/registration.service';
+import {RegistrationComponent} from './registration/registration-create/registration.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingModule} from './app.routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {InfoComponent} from './info/info.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsComponent} from './teams/teams.component';
+import {RegistrationDetailComponent} from './registration/registration-detail/registration-detail.component';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   {path: 'info', component: InfoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'teams', component: TeamsComponent},
+  {path: 'registration-details', component: RegistrationDetailComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 
@@ -46,9 +47,10 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ReactiveFormsModule
   ],
-  providers: [RegistrationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
