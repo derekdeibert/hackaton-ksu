@@ -19,6 +19,15 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+/* GET SINGLE BOOK BY EMAIL */
+router.get('/email', function(req, result, next) {
+  var query = { email: req.params.email };
+  Registration.findOne( function(err, post){
+    if (err) return next(err);
+    result.json(post);
+  });
+});
+
 /* SAVE BOOK */
 router.post('/', function(req, res, next) {
   Registration.create(req.body, function (err, post) {

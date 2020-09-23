@@ -70,5 +70,12 @@ export class ApiService{
         catchError(this.handleError)
       );
   }
+
+  login(email: string): Observable<any>{
+    const url = `${apiUrl}/${email}`;
+    return this.http.get(url, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
 }
 
