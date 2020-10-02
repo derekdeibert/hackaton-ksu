@@ -16,6 +16,7 @@ export class RegistrationComponent implements OnInit {
   lastName:string='';
   email:string='';
   password:string='';
+  Sponsors:string='';
 
   constructor(private api: ApiService,
               private formBuilder: FormBuilder,
@@ -40,7 +41,8 @@ export class RegistrationComponent implements OnInit {
       'firstName' : [null, Validators.required],
       'lastName' : [null, Validators.required],
       'email' : [null, Validators.required],
-      'password' : [null, Validators.required]
+      'password' : [null, Validators.required],
+      'Sponsors' : [null, Validators.required]
     });
   }
 
