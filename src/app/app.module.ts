@@ -18,6 +18,7 @@ import {InfoComponent} from './info/info.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsComponent} from './teams/teams.component';
 import {RegistrationDetailComponent} from './registration/registration-detail/registration-detail.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatRadioModule,
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     HttpClientModule,
