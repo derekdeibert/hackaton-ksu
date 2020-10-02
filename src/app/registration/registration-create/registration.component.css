@@ -1,13 +1,10 @@
 form {
     text-align: center;
     border-style: double;
-    border-width: thick;
-    border-width: 25px;
+    border-width: 1rem;
     border-color:#FFD733;
-    margin-top: 400x;
-  margin-bottom: 400px;
-  margin-right: 400px;
-  margin-left: 400px;
+    margin: 0 auto;
+    align-content: center;
   }
   .wellstar {
     width: 150px;
@@ -20,7 +17,7 @@ form {
     margin-left: 125px;
     margin-top: 20px;
     */
-    
+
     /*for demo*/
     display:inline-block;
     vertical-align:middle;
@@ -29,7 +26,7 @@ form {
     width:50%;
   }
   .magmutual {
-    width: 200px;
+    width: 180px;
     height: 99px;
     border-radius: 0%;
     overflow: hidden;
@@ -39,7 +36,7 @@ form {
     margin-left: 125px;
     margin-top: 20px;
     */
-    
+
     /*for demo*/
     display:inline-block;
     vertical-align:middle;
@@ -58,11 +55,11 @@ form {
     margin-left: 125px;
     margin-top: 20px;
     */
-    
+
     /*for demo*/
     display:inline-block;
     vertical-align:middle;
-    
+
   }
   .hpcc img{
     width:100%;
@@ -73,20 +70,24 @@ form {
     height: 100px;
     border-radius: 0%;
     overflow: hidden;
-    
+    align-content: center;
+
     /* commented for demo
     float: left;
     margin-left: 125px;
     margin-top: 20px;
     */
-    
+
     /*for demo*/
     display:inline-block;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    
+
   }
   .owl img{
     width:100%;
+  }
+  .radiobuttons{
+
   }
