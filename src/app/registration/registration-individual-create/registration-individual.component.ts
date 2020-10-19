@@ -4,20 +4,28 @@ import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {RegistrationModel} from '../../model/registration.model';
 import {ApiService} from '../../services/api.service';
-
+interface Skill {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  templateUrl: './registration-individual.component.html',
+  styleUrls: ['./registration-individual.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationIndividualComponent implements OnInit {
   registrationForm: FormGroup;
   firstName:string='';
   lastName:string='';
   email:string='';
   password:string='';
-  sponsor:string='';
-
+  sponsor: string='';
+  skills: Skill[] = [
+    {value: 'java', viewValue: 'Java'},
+    {value: 'cPlus', viewValue: 'C++'},
+    {value: 'python', viewValue: 'Python'},
+    {value: 'dataAnalysis', viewValue: 'Data Analysis'}
+  ];
   constructor(private api: ApiService,
               private formBuilder: FormBuilder,
               private router: Router) {

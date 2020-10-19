@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatButtonModule } from '@angular/material/button';
 import {HomepageComponent} from './homepage/homepage.component';
-import {RegistrationComponent} from './registration/registration-create/registration.component';
+import {RegistrationIndividualComponent} from './registration/registration-individual-create/registration-individual.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {RouterModule, Routes} from '@angular/router';
@@ -17,16 +17,19 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {InfoComponent} from './info/info.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsComponent} from './teams/teams.component';
-import {RegistrationDetailComponent} from './registration/registration-detail/registration-detail.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {RegistrationTeamComponent} from './registration/registration-team-create/registration-team.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
-  {path: 'register', component: RegistrationComponent},
+  {path: 'register-individual', component: RegistrationIndividualComponent},
   {path: 'info', component: InfoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'teams', component: TeamsComponent},
-  {path: 'registration-details', component: RegistrationDetailComponent},
+  {path: 'register-team', component: RegistrationTeamComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 
@@ -35,15 +38,19 @@ const appRoutes: Routes = [
     AppComponent,
     NavigationComponent,
     HomepageComponent,
-    RegistrationComponent,
-    LoginComponent
+    RegistrationIndividualComponent,
+    LoginComponent,
+    RegistrationTeamComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatCheckboxModule,
+    MatListModule,
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatCardModule,
     MatRadioModule,
     RouterModule.forRoot(appRoutes),
