@@ -20,6 +20,7 @@ export class RegistrationIndividualComponent implements OnInit {
   email:string='';
   password:string='';
   sponsor: string='';
+  ksuId: string='';
   skills: Skill[] = [
     {value: 'java', viewValue: 'Java'},
     {value: 'cPlus', viewValue: 'C++'},
@@ -50,7 +51,8 @@ export class RegistrationIndividualComponent implements OnInit {
       'lastName' : [null, Validators.required],
       'email' : [null, Validators.required],
       'password' : [null, Validators.required],
-      'sponsor' : [null, Validators.required]
+      'sponsor' : [null, Validators.required],
+      'ksuId' : [null, Validators.required]
     });
   }
 

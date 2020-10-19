@@ -5,5 +5,6 @@ var RegistrationSchema = new mongoose.Schema({
   lastName : String,
   email: String,
   password: String,
-  sponsor: String});
+  sponsor: String,
+  ksuId: String});
 module.exports = mongoose.model('Registration', RegistrationSchema);
