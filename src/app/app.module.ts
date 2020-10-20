@@ -40,7 +40,8 @@ const appRoutes: Routes = [
     HomepageComponent,
     RegistrationIndividualComponent,
     LoginComponent,
-    RegistrationTeamComponent
+    RegistrationTeamComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
