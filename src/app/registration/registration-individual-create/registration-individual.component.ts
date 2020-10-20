@@ -1,8 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {Subscription} from 'rxjs';
-import {RegistrationModel} from '../../model/registration.model';
 import {ApiService} from '../../services/api.service';
 interface Skill {
   value: string;

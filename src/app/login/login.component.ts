@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../services/api.service';
 import {RegistrationModel} from '../model/registration.model';
+import {NavbarService} from '../services/nav.service';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,24 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup;
   email:string='';
   password:string='';
+  loggedIn: boolean;
 
   constructor(private router: Router,
               private api: ApiService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              public nav: NavbarService) {
+  }
+  onLogin(form: NgForm) {
+    this.loggedIn = true;
+    this.nav.visible = true;
+    if (form.invalid){
+      console.log("Form is invalid.");
+      return;
+    }
+    console.log(this.loggedIn);
+    if(this.loggedIn){
+      this.router.navigate(['homepage']);
+    }
   }
 
   ngOnInit() {
@@ -26,34 +41,4 @@ export class LoginComponent implements OnInit{
       'password' : [null, Validators.required]
     });
   }
-
-  onLogin(form: NgForm) {
-    this.api.getRegistrations()
-      .subscribe(data => {
-        this.allRegistrations = data;
-      }, (err) => {
-        console.log(err);
-      });
-
-    if(this.validateLogin(this.allRegistrations, form)){
-      console.log("login is valid");
-    }
-    else {
-      console.log("login is invalid");
-    }
-  }
-
-  validateLogin(registrations: RegistrationModel[], form: NgForm) {
-    var email = form.value.email;
-    var password = form.value.password;
-
-    for(var i = 0; i < registrations.length; i++){
-      if(registrations[i].email === email){
-        if(registrations[i].password === password){
-          return true;
-        }
-        else return false;
-      }
-    }
-}
 }

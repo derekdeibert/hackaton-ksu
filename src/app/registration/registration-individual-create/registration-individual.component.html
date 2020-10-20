@@ -22,9 +22,10 @@
     <br>
     <mat-form-field hintLabel="Minimum 8 characters.">
       <mat-label>Password</mat-label>
-      <input matInput formControlName="password" type="text" required ngModel placeholder="Password">
+      <input matInput formControlName="password" type="password" required ngModel placeholder="Password">
     </mat-form-field>
-    <mat-form-field>
+    <br>
+    <mat-form-field hintLabel="Only numeric characters.">
       <mat-label>KSU ID</mat-label>
       <input matInput formControlName="ksuId" type="text" required ngModel placeholder="KSU ID">
     </mat-form-field>

@@ -22,6 +22,7 @@ import {RegistrationTeamComponent} from './registration/registration-team-create
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
+import {NavbarService} from './services/nav.service';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
@@ -30,7 +31,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'teams', component: TeamsComponent},
   {path: 'register-team', component: RegistrationTeamComponent},
-  { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
     MatExpansionModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

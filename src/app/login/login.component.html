@@ -1,4 +1,6 @@
-<mat-card>
+<h1 class="header">Welcome to Kennesaw State University's Hackathon!</h1>
+<h3 class="subheader">Please login to continue</h3>
+<mat-card class="login">
   <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
     <mat-form-field>
     <mat-label>Email Address</mat-label>
@@ -7,14 +9,15 @@
     <br>
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput formControlName="password" type="text" required  minlength="1" placeholder="Password">
+      <input matInput formControlName="password" type="password" required  minlength="1" placeholder="Password">
     </mat-form-field>
+    <br>
+    <button
+      mat-raised-button
+      type="submit"
+      class="button">
+      Login
+    </button>
+    <br>
   </form>
-  <br>
-  <button
-    mat-raised-button
-    type="submit">
-    Login
-  </button>
-  <br>
 </mat-card>
