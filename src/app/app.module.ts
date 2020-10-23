@@ -23,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {NavbarService} from './services/nav.service';
+import {LoginService} from './services/login.service';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     MatExpansionModule,
     ReactiveFormsModule
   ],
-  providers: [NavbarService],
+  providers: [NavbarService,
+  LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

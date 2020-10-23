@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ApiService} from '../services/api.service';
 import {RegistrationModel} from '../model/registration.model';
 import {NavbarService} from '../services/nav.service';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,12 @@ export class LoginComponent implements OnInit{
   constructor(private router: Router,
               private api: ApiService,
               private formBuilder: FormBuilder,
-              public nav: NavbarService) {
+              public nav: NavbarService,
+              public loginService: LoginService) {
   }
   onLogin(form: NgForm) {
-    this.loggedIn = true;
     this.nav.visible = true;
+    this.loginService.loggedIn = true;
     if (form.invalid){
       console.log("Form is invalid.");
       return;
