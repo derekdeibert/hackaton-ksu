@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {RegistrationModel} from '../../model/registration.model';
 import {ApiService} from '../../services/api.service';
+import {TeamService} from '../../services/team.service';
+
 
 @Component({
   selector: 'app-registration-team',
@@ -11,14 +13,15 @@ import {ApiService} from '../../services/api.service';
   styleUrls: ['./registration-team.component.css']
 })
 export class RegistrationTeamComponent implements OnInit {
-  registrationForm: FormGroup;
-  firstName:string='';
-  lastName:string='';
-  email:string='';
-  password:string='';
-  sponsor:string='';
-
-  constructor(private api: ApiService,
+  teamRegistrationForm: FormGroup;
+  teamName: string='';
+  teamSponsor: string='';
+  projectDescription: string='';
+  teamMember1:string='';
+  teamMember2:string='';
+  teamMember3:string='';
+  teamMember4:string='';
+  constructor(private api: TeamService,
               private formBuilder: FormBuilder,
               private router: Router) {
   }
@@ -28,21 +31,24 @@ export class RegistrationTeamComponent implements OnInit {
       console.log("Form is invalid.");
       return;
     }
-    this.api.postRegistration(form)
+    this.api.postTeamRegistration(form)
       .subscribe(res => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/homepage']);
       }, (err) => {
         console.log(err);
       });
+
   }
 
   ngOnInit() {
-    this.registrationForm = this.formBuilder.group({
-      'firstName' : [null, Validators.required],
-      'lastName' : [null, Validators.required],
-      'email' : [null, Validators.required],
-      'password' : [null, Validators.required],
-      'sponsor' : [null, Validators.required]
+    this.teamRegistrationForm = this.formBuilder.group({
+      'teamName' : [null, Validators.required],
+      'teamSponsor' : [null, Validators.required],
+      'projectDescription' : [null, Validators.required],
+      'teamMember1' : [null, Validators.required],
+      'teamMember2' : [null, Validators.required],
+      'teamMember3' : [null, Validators.required],
+      'teamMember4' : [null, Validators.required]
     });
   }
 
