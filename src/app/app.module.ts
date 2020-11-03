@@ -24,6 +24,7 @@ import { MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {NavbarService} from './services/nav.service';
 import {LoginService} from './services/login.service';
+import {RegistrationUpdateDeleteComponent} from './registration/registration-update-delete/registration-update-delete.component';
 
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'teams', component: TeamsComponent},
   {path: 'register-team', component: RegistrationTeamComponent},
+  {path: 'register-update', component: RegistrationUpdateDeleteComponent},
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];
 
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     RegistrationIndividualComponent,
     LoginComponent,
     RegistrationTeamComponent,
-    InfoComponent
+    InfoComponent,
+    RegistrationUpdateDeleteComponent
   ],
   imports: [
     BrowserModule,

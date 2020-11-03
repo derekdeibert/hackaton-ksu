@@ -25,7 +25,7 @@ export class RegistrationIndividualComponent implements OnInit {
     {value: 'python', viewValue: 'Python'},
     {value: 'dataAnalysis', viewValue: 'Data Analysis'}
   ];
-  constructor(private api: ApiService,
+  constructor(private apiService: ApiService,
               private formBuilder: FormBuilder,
               private router: Router) {
   }
@@ -35,8 +35,9 @@ export class RegistrationIndividualComponent implements OnInit {
       console.log("Form is invalid.");
       return;
     }
-    this.api.postRegistration(form)
+    this.apiService.postRegistration(form)
       .subscribe(res => {
+        console.log('registration sent to db');
         this.router.navigate(['/login']);
       }, (err) => {
         console.log(err);
