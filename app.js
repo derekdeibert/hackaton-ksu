@@ -4,14 +4,15 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 
-var apiRouterRegistration = require('./routes/registration');
-var apiRouterTeam = require('./routes/team')
+var apiRouterRegistration = require('./routes/individual.route');
+var apiRouterTeam = require('./routes/team.route')
 var app = express();
 var appTeam = express();
 var mongooseTeam = require('mongoose');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://user3:user3pass@cluster0.c0jpb.mongodb.net/registration?retryWrites=true&w=majority', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection successful'))
+
+mongoose.createConnection('mongodb+srv://user3:user3pass@cluster0.c0jpb.mongodb.net/registration?retryWrites=true&w=majority', { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('connection to registration db successful'))
   .catch((err) => console.error(err));
 
 app.use(logger('dev'));
@@ -37,11 +38,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.status);
 });
-mongoose.co
+
 //Team DB
 
 mongooseTeam.createConnection('mongodb+srv://user3:user3pass@cluster0.c0jpb.mongodb.net/team?retryWrites=true&w=majority', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection successful'))
+  .then(() =>  console.log('connection to team db successful'))
   .catch((err) => console.error(err));
 
 appTeam.use(logger('dev'));
@@ -70,6 +71,8 @@ appTeam.use(function(err, req, res, next) {
 
 
 
+
 module.exports = app;
 module.exports = appTeam;
+
 

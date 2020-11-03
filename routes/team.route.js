@@ -1,11 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var Registration = require('../models/Registration');
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+let Team = require('../models/Registration-Team');
 
 /* GET ALL BOOKS */
 router.get('/', function(req, res, next) {
-  Registration.find(function (err, products) {
+  Team.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
   });
@@ -13,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 /* GET SINGLE BOOK BY ID */
 router.get('/:id', function(req, res, next) {
-  Registration.findById(req.params.id, function (err, post) {
+  Team.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -22,7 +23,7 @@ router.get('/:id', function(req, res, next) {
 /* GET SINGLE BOOK BY EMAIL */
 router.get('/email', function(req, result, next) {
   var query = { email: req.params.email };
-  Registration.findOne( function(err, post){
+  Team.findOne( function(err, post){
     if (err) return next(err);
     result.json(post);
   });
@@ -30,7 +31,7 @@ router.get('/email', function(req, result, next) {
 
 /* SAVE BOOK */
 router.post('/', function(req, res, next) {
-  Registration.create(req.body, function (err, post) {
+  Team.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -38,7 +39,7 @@ router.post('/', function(req, res, next) {
 
 /* UPDATE BOOK */
 router.put('/:id', function(req, res, next) {
-  Registration.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+  Team.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -46,7 +47,7 @@ router.put('/:id', function(req, res, next) {
 
 /* DELETE BOOK */
 router.delete('/:id', function(req, res, next) {
-  Registration.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Team.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
