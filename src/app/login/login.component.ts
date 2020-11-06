@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit{
   }
   getPasswordFromDB(form: FormGroup){
     console.log(form);
+    this.loggedIn = true;
+    this.nav.visible = true;
+    this.router.navigate(['/homepage']);
   }
 /*  getPasswordFromDB(form: FormGroup){
     this.ksuId = form.value.ksuId;
