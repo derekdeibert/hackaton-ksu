@@ -1,46 +1,46 @@
 <div class="login-box">
-  <mat-card>
-      <picture>
-        <img class="owl" src="https://news.kennesaw.edu/archives/images/Scrappy%2010.18.12%20KSUbdbnrFC.story%20image.jpg">
-      </picture>
-      <form class="teamForm" [formGroup]="teamRegistrationForm" (ngSubmit)="onTeamRegistration(teamRegistrationForm.value)">
-        <mat-form-field>
-          <mat-label>Team Name</mat-label>
-          <input matInput formControlName="teamName" type="text" ngModel required  minlength="1" placeholder="Team Name">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Project Description</mat-label>
-          <textarea matInput formControlName="projectDescription"  type="text" required ngModel placeholder="Email Address">
-          </textarea>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Team Member 1</mat-label>
-          <input matInput formControlName="teamMember1" type="text" required ngModel placeholder="Team Member 1">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Team Member 2</mat-label>
-          <input matInput formControlName="teamMember2" type="text" required ngModel placeholder="Team Member 2">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Team Member 3</mat-label>
-          <input matInput formControlName="teamMember3" type="text" required ngModel placeholder="Team Member 3">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Team Member 4</mat-label>
-          <input matInput formControlName="teamMember4" type="text" required ngModel placeholder="Team Member 4">
-        </mat-form-field>
-        <br>
-        <button
-          mat-raised-button
-          type="submit">
-          Create Team
-        </button>
-        <br>
-        <br>
-      </form>
-    </mat-card>
+<mat-card>
+    <picture>
+      <img class="owl" src="https://news.kennesaw.edu/archives/images/Scrappy%2010.18.12%20KSUbdbnrFC.story%20image.jpg">
+    </picture>
+    <form class="teamForm" [formGroup]="teamRegistrationForm" (ngSubmit)="onTeamRegistration(teamRegistrationForm.value)">
+      <mat-form-field>
+        <mat-label>Team Name</mat-label>
+        <input matInput formControlName="teamName" type="text" ngModel required  minlength="1" placeholder="Team Name">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Project Description</mat-label>
+        <textarea matInput formControlName="projectDescription"  type="text" required ngModel placeholder="Email Address">
+        </textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Team Member 1</mat-label>
+        <input matInput formControlName="teamMember1" type="text" required ngModel placeholder="Team Member 1">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Team Member 2</mat-label>
+        <input matInput formControlName="teamMember2" type="text" required ngModel placeholder="Team Member 2">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Team Member 3</mat-label>
+        <input matInput formControlName="teamMember3" type="text" required ngModel placeholder="Team Member 3">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Team Member 4</mat-label>
+        <input matInput formControlName="teamMember4" type="text" required ngModel placeholder="Team Member 4">
+      </mat-form-field>
+      <br>
+      <button
+        mat-raised-button
+        type="submit">
+        Create Team
+      </button>
+      <br>
+      <br>
+    </form>
+  </mat-card>

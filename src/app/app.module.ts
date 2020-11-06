@@ -4,6 +4,8 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
+import {ProfileComponent} from './profile/profile.component';
+import {SkillSetComponent} from './skill-set/skill-set.component';
 import { MatButtonModule } from '@angular/material/button';
 import {HomepageComponent} from './homepage/homepage.component';
 import {RegistrationIndividualComponent} from './registration/registration-individual-create/registration-individual.component';
@@ -26,11 +28,14 @@ import {NavbarService} from './services/nav.service';
 import {LoginService} from './services/login.service';
 import {RegistrationUpdateDeleteComponent} from './registration/registration-update-delete/registration-update-delete.component';
 
+
 const appRoutes: Routes = [
   {path: 'homepage', component: HomepageComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'register-individual', component: RegistrationIndividualComponent},
   {path: 'info', component: InfoComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'skillset', component: SkillSetComponent},
   {path: 'teams', component: TeamsComponent},
   {path: 'register-team', component: RegistrationTeamComponent},
   {path: 'register-update', component: RegistrationUpdateDeleteComponent},
@@ -39,8 +44,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    SkillSetComponent,
     AppComponent,
     NavigationComponent,
+    ProfileComponent,
     HomepageComponent,
     RegistrationIndividualComponent,
     LoginComponent,
