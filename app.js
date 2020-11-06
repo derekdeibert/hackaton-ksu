@@ -13,7 +13,7 @@ const express = require('express')
 const indReg = require('./IndRoutes'); //imports routes
 
 const app = express()
-const port = process.env.port || 3000;
+const port = process.env.port || 8080;
 
 
 app.use(bodyParser.json());
