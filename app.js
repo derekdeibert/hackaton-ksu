@@ -1,78 +1,27 @@
-var createError = require('http-errors');
-var express = require('express');
+
+const CONNECTION_URL_IND = 'mongodb+srv://user3:user3pass@cluster0.c0jpb.mongodb.net/registration?retryWrites=true&w=majority';
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+const mongoDBInd = process.env.MONGODB_URI || CONNECTION_URL_IND;
 
-var apiRouterRegistration = require('./routes/individual.route');
-var apiRouterTeam = require('./routes/team.route')
-var app = express();
-var appTeam = express();
-var mongooseTeam = require('mongoose');
-var mongoose = require('mongoose');
+mongoose.connect(mongoDBInd);
+mongoose.Promise = global.Promise;
+const dbInd = mongoose.connection;
+dbInd.on('error', console.error.bind(console, 'MongoDB Ind connection error:'));
+const express = require('express')
+const indReg = require('./IndRoutes'); //imports routes
 
-mongoose.createConnection('mongodb+srv://user3:user3pass@cluster0.c0jpb.mongodb.net/registration?retryWrites=true&w=majority', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection to registration db successful'))
-  .catch((err) => console.error(err));
+const app = express()
+const port = 3000
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/reg', indReg);
 app.use(express.static(path.join(__dirname, 'dist/hackaton-ksu')));
 app.use('/', express.static(path.join(__dirname, 'dist/hackaton-ksu')));
-app.use('/api', apiRouterRegistration);
-app.use('/', apiRouterRegistration);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.listen(port, () => {
+  console.log('Server is up and running on port number ' + port);
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.send(err.status);
-});
-
-//Team DB
-
-mongooseTeam.createConnection('mongodb+srv://user3:user3pass@cluster0.c0jpb.mongodb.net/team?retryWrites=true&w=majority', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection to team db successful'))
-  .catch((err) => console.error(err));
-
-appTeam.use(logger('dev'));
-appTeam.use(express.json());
-appTeam.use(express.urlencoded({ extended: false }));
-appTeam.use(express.static(path.join(__dirname, 'dist/hackaton-ksu')));
-appTeam.use('/', express.static(path.join(__dirname, 'dist/hackaton-ksu')));
-appTeam.use('/apiTeam', apiRouterTeam);
-appTeam.use('/', apiRouterTeam);
-
-// catch 404 and forward to error handler
-appTeam.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-appTeam.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.send(err.status);
-});
-
-
-
-
-module.exports = app;
-module.exports = appTeam;
-
-

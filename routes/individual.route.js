@@ -6,9 +6,11 @@ let RegistrationIndivdual = require('../models/Registration-Individual')
 
 /* GET ALL BOOKS */
 router.get('/', function(req, res, next) {
+  console.log("Made it to the router");
   RegistrationIndivdual.find(function (err, products) {
     if (err) return next(err);
-    res.json(products);
+    //res.json(products);
+    //setTimeout(null,10000);
   });
 });
 

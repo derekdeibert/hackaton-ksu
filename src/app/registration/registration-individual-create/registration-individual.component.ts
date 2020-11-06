@@ -13,6 +13,7 @@ interface Skill {
 })
 export class RegistrationIndividualComponent implements OnInit {
   registrationForm: FormGroup;
+  type:string='individual';
   firstName:string='';
   lastName:string='';
   email:string='';
@@ -35,6 +36,7 @@ export class RegistrationIndividualComponent implements OnInit {
       console.log("Form is invalid.");
       return;
     }
+    console.log(form);
     this.apiService.postRegistration(form)
       .subscribe(res => {
         console.log('registration sent to db');
@@ -46,6 +48,7 @@ export class RegistrationIndividualComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.formBuilder.group({
+      'type' : ['individual', Validators.required],
       'firstName' : [null, Validators.required],
       'lastName' : [null, Validators.required],
       'email' : [null, Validators.required],
