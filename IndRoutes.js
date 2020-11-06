@@ -83,4 +83,12 @@ router.post('/create',(req, res, next) => {
   })
 });
 
+//get password
+router.get('/getPassword/:ksuId', function (req, res) {
+  IndRegistration.find({ ksuId: req.params.ksuId}, req.body, {new: true}, function (err, data) {
+    if (err) return res.status(500).send("There was an error getting the registration for that password.");
+    res.status(200).send(data);
+  });
+});
+
 module.exports = router;

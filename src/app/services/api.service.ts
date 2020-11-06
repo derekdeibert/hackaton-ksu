@@ -79,8 +79,9 @@ export class ApiService{
       );
   }
 
-  login(email: string): Observable<any>{
-    const url = `${apiUrl}/${email}`;
+  login(ksuId: string): Observable<any>{
+    const getPassword = 'getPassword';
+    const url = `${apiUrl}/${getPassword}/${ksuId}`;
     return this.http.get(url, httpOptions).pipe(
       catchError(this.handleError)
     );

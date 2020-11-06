@@ -2,18 +2,18 @@
 <h1 class="header">Welcome to Kennesaw State University's Hackathon!</h1>
 <h3 class="subheader">Please login to continue</h3>
 <mat-card>
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+  <form [formGroup]="loginForm" (ngSubmit)="getPasswordFromDB(loginForm)">
     <div class="user-box">
     <mat-form-field>
-    <mat-label>KSU Email Address</mat-label>
-    <input matInput formControlName="email" type="text" required  minlength="1" placeholder="">
+    <mat-label>KSU ID</mat-label>
+    <input matInput formControlName="ksuId" type="text" required  minlength="1" placeholder="KSU ID">
     </mat-form-field>
     </div>
     <br>
     <div class="user-box">
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput formControlName="password" type="text" required  minlength="1" placeholder="">
+      <input matInput formControlName="password" type="text" required  minlength="1" placeholder="Password">
     </mat-form-field>
     </div>
 
