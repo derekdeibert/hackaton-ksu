@@ -4,7 +4,7 @@
   <picture>
     <img class="owl" src="https://pngimage.net/wp-content/uploads/2018/06/logo-owl-png.png">
   </picture>
-  <form action="pr[formGroup]="registrationForm" (ngSubmit)="onRegistration(registrationForm.value)">
+  <form [formGroup]=registrationForm  (ngSubmit)="onRegistration(registrationForm.value)">
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput formControlName="firstName" type="text" ngModel required  minlength="1" placeholder="First Name">
