@@ -25,3 +25,4 @@ app.use('/', express.static(path.join(__dirname, 'dist/hackaton-ksu')));
 app.listen(port, () => {
   console.log('Server is up and running on port number ' + port);
 });
+
