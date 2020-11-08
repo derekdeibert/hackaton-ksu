@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && node bin/www",
+    "start": "ng build && node app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,7 +23,9 @@
     "@angular/router": "^10.1.1",
     "angular-material": "^1.2.0",
     "angular-material-expansion-panel": "^0.7.2",
+    "async": "^3.2.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
     "mongoose": "^5.10.5",

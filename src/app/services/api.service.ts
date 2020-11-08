@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "/api";
+const apiUrl = "/reg";
 
 @Injectable({
   providedIn: 'root',
@@ -36,43 +36,52 @@ export class ApiService{
   }
 
   getRegistrations(): Observable<any> {
-    return this.http.get(apiUrl, httpOptions).pipe(
+    console.log('getting registrations from DB');
+    const getAll = '/reg/all';
+    return this.http.get(getAll, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  getRegistrationById(id: string): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+  getRegistrationByKsuId(id: string): Observable<any> {
+    const getBy = 'getByKsuId';
+    const url = `${apiUrl}/${getBy}/${id}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
   postRegistration(data): Observable<any> {
-    return this.http.post(apiUrl, data, httpOptions)
+    const createReg = 'create';
+    const url = `${apiUrl}/${createReg}`;
+    return this.http.post(url, data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   updateRegistration(id: string, data): Observable<any> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.put(url, data, httpOptions)
+    const update = 'update';
+    const url = `${apiUrl}/${update}/${id}`;
+    console.log(data);
+    return this.http.put(url, data.value, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   deleteRegistration(id: string): Observable<{}> {
-    const url = `${apiUrl}/${id}`;
+    const deleteByKsuId = 'delete';
+    const url = `${apiUrl}/${deleteByKsuId}/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  login(email: string): Observable<any>{
-    const url = `${apiUrl}/${email}`;
+  login(ksuId: string): Observable<any>{
+    const getPassword = 'getPassword';
+    const url = `${apiUrl}/${getPassword}/${ksuId}`;
     return this.http.get(url, httpOptions).pipe(
       catchError(this.handleError)
     );

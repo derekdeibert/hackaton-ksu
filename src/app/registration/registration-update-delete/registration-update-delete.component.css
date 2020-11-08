@@ -1,0 +1,14 @@
+.idCard {
+  padding-top: 1rem;
+  text-align: center;
+  border: #0a0a09;
+}
+.getRegButton{
+
+}
+.editOrDelete{
+  text-align: center;
+}
+.editRegForm{
+  text-align: center;
+}

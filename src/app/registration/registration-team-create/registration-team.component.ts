@@ -14,6 +14,7 @@ import {TeamService} from '../../services/team.service';
 })
 export class RegistrationTeamComponent implements OnInit {
   teamRegistrationForm: FormGroup;
+  type:string='team';
   teamName: string='';
   teamSponsor: string='';
   projectDescription: string='';
@@ -21,7 +22,7 @@ export class RegistrationTeamComponent implements OnInit {
   teamMember2:string='';
   teamMember3:string='';
   teamMember4:string='';
-  constructor(private api: TeamService,
+  constructor(private api: ApiService,
               private formBuilder: FormBuilder,
               private router: Router) {
   }
@@ -31,7 +32,7 @@ export class RegistrationTeamComponent implements OnInit {
       console.log("Form is invalid.");
       return;
     }
-    this.api.postTeamRegistration(form)
+    this.api.postRegistration(form)
       .subscribe(res => {
         this.router.navigate(['/homepage']);
       }, (err) => {
@@ -42,6 +43,7 @@ export class RegistrationTeamComponent implements OnInit {
 
   ngOnInit() {
     this.teamRegistrationForm = this.formBuilder.group({
+      'team' : ['team', Validators.required],
       'teamName' : [null, Validators.required],
       'teamSponsor' : [null, Validators.required],
       'projectDescription' : [null, Validators.required],

@@ -1,3 +1,5 @@
+import {$} from "protractor";
+
 $(function() {
     $('.chart').easyPieChart({
       scaleColor: "#ecf0f1",

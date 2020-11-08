@@ -5,6 +5,7 @@ import {ApiService} from '../services/api.service';
 import {RegistrationModel} from '../model/registration.model';
 import {NavbarService} from '../services/nav.service';
 import {LoginService} from '../services/login.service';
+import {error} from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-login',
@@ -14,33 +15,45 @@ import {LoginService} from '../services/login.service';
 export class LoginComponent implements OnInit{
   allRegistrations = [];
   loginForm: FormGroup;
-  email:string='';
-  password:string='';
+  ksuId:string='';
+  PasswordSupplied:string='';
   loggedIn: boolean;
+  passwordFromDB: string=''
 
   constructor(private router: Router,
-              private api: ApiService,
+              private apiService: ApiService,
               private formBuilder: FormBuilder,
               public nav: NavbarService,
               public loginService: LoginService) {
   }
-  onLogin(form: NgForm) {
+  getPasswordFromDB(form: FormGroup){
+    console.log(form);
+    this.loggedIn = true;
     this.nav.visible = true;
-    this.loginService.loggedIn = true;
-    if (form.invalid){
-      console.log("Form is invalid.");
-      return;
-    }
-    console.log(this.loggedIn);
-    if(this.loggedIn){
-      this.router.navigate(['/homepage']);
-    }
+    this.router.navigate(['/homepage']);
   }
+/*  getPasswordFromDB(form: FormGroup){
+    this.ksuId = form.value.ksuId;
+    this.apiService.login(this.ksuId)
+      .subscribe(res => {
+        var obj = JSON.parse(res);
+        this.passwordFromDB = obj.password;
+        console.log(this.passwordFromDB);
+      }, (err) => {
+        console.log(err);
+      });
+    if(this.passwordFromDB !== form.value.passwordSupplied){
+      return error('Password is incorrect.');
+    }
+    else{
+      this.router.navigate(['/app-profile']);
+    }
+  }*/
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      'email' : [null, Validators.required],
-      'password' : [null, Validators.required]
+      'ksuId' : [null, Validators.required],
+      'passwordSupplied' : [null, Validators.required]
     });
   }
 }
