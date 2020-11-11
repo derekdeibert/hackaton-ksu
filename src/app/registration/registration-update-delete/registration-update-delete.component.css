@@ -1,7 +1,19 @@
+h2{
+  text-align: center;
+}
 .idCard {
   padding-top: 1rem;
   text-align: center;
   border: #0a0a09;
+  column-count: 2;
+}
+.getIdForm{
+  padding-left: 3rem;
+  column-fill: auto;
+}
+.getTeamNameForm{
+  column-fill: auto;
+  padding-right: 3rem;
 }
 .getRegButton{
 
@@ -10,5 +22,8 @@
   text-align: center;
 }
 .editRegForm{
+  text-align: center;
+}
+.editTeamForm{
   text-align: center;
 }

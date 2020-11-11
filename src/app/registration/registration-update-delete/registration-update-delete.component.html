@@ -1,21 +1,40 @@
+<h2>Enter KSU ID for Individual Registration or Team Name for Team Registration</h2>
 <mat-card class="idCard">
-  <form [formGroup]="formGetId">
+  <form [formGroup]="formGetId" class="getIdForm">
     <mat-label> Enter KSU ID</mat-label>
     <br>
     <mat-form-field>
       <input matInput type="text" formControlName="ksuId" placeholder="KSU ID">
     </mat-form-field>
     <br>
-    <button mat-raised-button class="getRegButton" type="button" (click)="getRegistrationByKsuId(formGetId)">Get Registration</button>
+    <button mat-raised-button class="getTeamRegButton" type="button" (click)="getRegistrationByKsuId(formGetId)">Get Registration</button>
+  </form>
+  <form [formGroup]="formTeamReg" class="getTeamNameForm">
+    <mat-label> Enter Team Name</mat-label>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" formControlName="teamNameEdit" placeholder="Team Name">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button class="getTeamRegButton" type="button" (click)="getRegistrationByTeamName(formTeamReg)">Get Team Registration</button>
   </form>
 </mat-card>
 
-<mat-card *ngIf="haveReg" class="editOrDelete">
+<mat-card *ngIf="haveIndReg" class="editOrDelete">
   <mat-label>Make a selection below:</mat-label>
-  <button mat-raised-button class="deleteButton" type="button" (click)="deleteRegistration(ksuIdEdit)">
+  <button mat-raised-button class="deleteButton" type="button" (click)="deleteIndRegistration(ksuIdEdit)">
     Delete Registration
   </button>
   <button mat-raised-button class="editButton" type="button" (click)="makeEditTrue()">
+    Edit Registration
+  </button>
+</mat-card>
+<mat-card *ngIf="haveTeamReg" class="editOrDelete">
+  <mat-label>Make a selection below:</mat-label>
+  <button mat-raised-button class="deleteButton" type="button" (click)="deleteTeamRegistration(teamNameEdit)">
+    Delete Registration
+  </button>
+  <button mat-raised-button class="editButton" type="button" (click)="makeTeamEditTrue()">
     Edit Registration
   </button>
 </mat-card>
@@ -79,6 +98,49 @@
       mat-raised-button
       type="submit">
       Edit Registration
+    </button>
+    <br>
+    <br>
+  </form>
+</mat-card>
+
+<mat-card *ngIf="teamEdit" [formGroup]="formTeamEdit" class="editTeamForm">
+  <form class="teamForm" [formGroup]="formTeamEdit" (ngSubmit)="editTeamRegistration(formTeamReg.value, formTeamEdit)">
+    <mat-form-field>
+      <mat-label>Team Name</mat-label>
+      <input matInput formControlName="teamName" type="text" ngModel required  minlength="1" placeholder="Team Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Project Description</mat-label>
+      <textarea matInput formControlName="projectDescription"  type="text" required ngModel placeholder="Email Address">
+        </textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Team Member 1</mat-label>
+      <input matInput formControlName="teamMember1" type="text" required ngModel placeholder="Team Member 1">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Team Member 2</mat-label>
+      <input matInput formControlName="teamMember2" type="text" required ngModel placeholder="Team Member 2">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Team Member 3</mat-label>
+      <input matInput formControlName="teamMember3" type="text" required ngModel placeholder="Team Member 3">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Team Member 4</mat-label>
+      <input matInput formControlName="teamMember4" type="text" required ngModel placeholder="Team Member 4">
+    </mat-form-field>
+    <br>
+    <button
+      mat-raised-button
+      type="submit">
+      Update Team
     </button>
     <br>
     <br>

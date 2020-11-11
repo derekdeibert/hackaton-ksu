@@ -69,6 +69,16 @@ export class ApiService{
         catchError(this.handleError)
       );
   }
+  updateTeamRegistration(id: string, data): Observable<any> {
+    const update = 'update';
+    const team = 'team';
+    const url = `${apiUrl}/${update}/${team}/${id}`;
+    console.log(data);
+    return this.http.put(url, data.value, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
   deleteRegistration(id: string): Observable<{}> {
     const deleteByKsuId = 'delete';
@@ -85,6 +95,24 @@ export class ApiService{
     return this.http.get(url, httpOptions).pipe(
       catchError(this.handleError)
     );
+  }
+
+  deleteByTeam(teamName: string): Observable<{}> {
+    const deleteByKsuId = 'deleteByTeam';
+    const url = `${apiUrl}/${deleteByKsuId}/${teamName}`;
+    return this.http.delete(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getRegByTeamName(teamName: string): Observable<{}> {
+    const getTeamReg = 'getTeamReg';
+    const url = `${apiUrl}/${getTeamReg}/${teamName}`;
+    return this.http.get(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 }
 

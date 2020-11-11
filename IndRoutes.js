@@ -65,6 +65,15 @@ router.put('/update/:ksuId', function (req, res) {
   });
 });
 
+//Update Team Reg
+router.put('/update/team/:teamName', function (req, res) {
+  IndRegistration.findOneAndUpdate({ teamName: req.params.teamName}, {$set: req.body},
+    {new: true}, function (err, user) {
+      if (err) return res.status(500).send("Error updating user registration with Team Name "+req.params.teamName);
+      res.status(200).send(user);
+    });
+});
+
 // Find Registration by KSU ID
 router.get('/getByKsuId/:ksuId', function (req, res) {
   IndRegistration.find({ ksuId: req.params.ksuId}, req.body, {new: true}, function (err, user) {
@@ -87,6 +96,21 @@ router.post('/create',(req, res, next) => {
 router.get('/getPassword/:ksuId', function (req, res) {
   IndRegistration.find({ ksuId: req.params.ksuId}, req.body, {new: true}, function (err, data) {
     if (err) return res.status(500).send("There was an error getting the registration for that password.");
+    res.status(200).send(data);
+  });
+});
+
+//delete by team name
+router.delete('/deleteByTeam/:teamName', function (req, res) {
+  IndRegistration.findOneAndDelete({ teamName: req.params.teamName}, function (err, user) {
+    if (err) return res.status(500).send("Error deleting user with Team Name "+req.params.teamName);
+    res.status(200).send("User with KSU ID "+req.params.teamName+" successfully deleted.");
+  });
+});
+
+router.get('/getTeamReg/:teamName', function (req, res) {
+  IndRegistration.find({ teamName: req.params.teamName}, req.body, {new: true}, function (err, data) {
+    if (err) return res.status(500).send("There was an error getting the registration for that team name.");
     res.status(200).send(data);
   });
 });
