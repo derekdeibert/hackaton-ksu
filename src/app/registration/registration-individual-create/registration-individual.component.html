@@ -4,29 +4,29 @@
   <picture>
     <img class="owl" src="https://pngimage.net/wp-content/uploads/2018/06/logo-owl-png.png">
   </picture>
-  <form [formGroup]=registrationForm  (ngSubmit)="onRegistration(registrationForm.value)">
+  <form [formGroup]=registrationForm  registrationForm  (ngSubmit)="onRegistration(registrationForm.value)">
     <mat-form-field>
       <mat-label>First Name</mat-label>
-      <input matInput formControlName="firstName" type="text" ngModel required  minlength="1" placeholder="First Name">
+      <input matInput formControlName="firstName" id="firstname" name="firstname" type="text" ngModel required  minlength="1" placeholder="First Name">
     </mat-form-field>
     <br>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName" type="text" ngModel required placeholder="Last Name">
+      <input matInput formControlName="lastName"  type="text" ngModel required placeholder="Last Name">
     </mat-form-field>
     <br>
     <mat-form-field>
       <mat-label>KSU Email</mat-label>
-      <input matInput formControlName="email"  type="text" required ngModel placeholder="Email Address">
+      <input matInput formControlName="email"   type="text" required ngModel placeholder="Email Address">
     </mat-form-field>
     <br>
     <mat-form-field hintLabel="Minimum 8 characters.">
       <mat-label>Password</mat-label>
-      <input matInput formControlName="password" type="password" required ngModel placeholder="Password">
+      <input matInput formControlName="password"  type="password" required ngModel placeholder="Password">
     </mat-form-field>
     <mat-form-field>
       <mat-label>KSU ID</mat-label>
-      <input matInput formControlName="ksuId" type="text" required ngModel placeholder="KSU ID">
+      <input matInput formControlName="ksuId"  type="text" required ngModel placeholder="KSU ID">
     </mat-form-field>
     <br>
     <br>

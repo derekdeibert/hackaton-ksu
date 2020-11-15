@@ -24,7 +24,7 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="">
+                  <img alt="Image placeholder" src="https://i.ibb.co/bX7bTqv/me-linkedin.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">Peyton Roakes</span>
@@ -85,7 +85,7 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src=""  class="rounded-circle">
+                    <img src="https://i.ibb.co/bX7bTqv/me-linkedin.jpg"  class="rounded-circle">
                   </a>
                 </div>
               </div>
@@ -239,3 +239,15 @@
     </div>
   </footer>
 </body>
+
+<div id ="entries">
+  <script>
+    const entrylist =document.getElementById('entries')
+    new URLSearchParams(window.location.search).forEach((value,
+    name) => {
+      entrylist.append(`${name}: ${value}`)
+      entrylist.append(document.createElement('br'))
+    })
+
+  </script>
+</div>
