@@ -43,7 +43,7 @@ export class RegistrationTeamComponent implements OnInit {
 
   ngOnInit() {
     this.teamRegistrationForm = this.formBuilder.group({
-      'team' : ['team', Validators.required],
+      'type' : ['team', Validators.required],
       'teamName' : [null, Validators.required],
       'teamSponsor' : [null, Validators.required],
       'projectDescription' : [null, Validators.required],

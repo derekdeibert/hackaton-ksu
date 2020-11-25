@@ -114,5 +114,14 @@ export class ApiService{
         catchError(this.handleError)
       );
   }
+
+  getAllTeams(): Observable<{}> {
+    const getTeams = 'getAllTeams';
+    const url = `${apiUrl}/${getTeams}`;
+    return this.http.get(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 }
 

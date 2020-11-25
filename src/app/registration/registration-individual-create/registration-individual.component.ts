@@ -40,7 +40,7 @@ export class RegistrationIndividualComponent implements OnInit {
     this.apiService.postRegistration(form)
       .subscribe(res => {
         console.log('registration sent to db');
-        this.router.navigate(['/app-profile']);
+        this.router.navigate(['/profile']);
       }, (err) => {
         console.log(err);
       });

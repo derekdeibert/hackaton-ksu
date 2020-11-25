@@ -25,7 +25,7 @@ export class RegistrationUpdateDeleteComponent implements OnInit{
   edit: boolean;
   teamEdit: boolean;
   delete: boolean;
-  type:string='individual';
+  type:string='';
   firstName:string='';
   lastName:string='';
   email:string='';
@@ -68,7 +68,7 @@ export class RegistrationUpdateDeleteComponent implements OnInit{
       'teamNameEdit': null
     });
     this.formTeamEdit = this.formBuilder.group({
-      'typeTeam' : ['team', Validators.required],
+      'type' : ['team', Validators.required],
       'teamName' : [null, Validators.required],
       'teamSponsor' : [null, Validators.required],
       'projectDescription' : [null, Validators.required],
@@ -76,7 +76,7 @@ export class RegistrationUpdateDeleteComponent implements OnInit{
       'teamMember2' : [null, Validators.required],
       'teamMember3' : [null, Validators.required],
       'teamMember4' : [null, Validators.required]
-    })
+    });
   }
 
   getRegistrationByKsuId(form: FormGroup){

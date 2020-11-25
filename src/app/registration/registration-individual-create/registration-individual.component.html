@@ -12,17 +12,17 @@
     <br>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName"  type="text" ngModel required placeholder="Last Name">
+      <input matInput formControlName="lastName"  type="text" ngModel required placeholder="Last Name" required minlength="1">
     </mat-form-field>
     <br>
     <mat-form-field>
       <mat-label>KSU Email</mat-label>
-      <input matInput formControlName="email"   type="text" required ngModel placeholder="Email Address">
+      <input matInput formControlName="email"   type="text" ngModel placeholder="Email Address" required minlength="7">
     </mat-form-field>
     <br>
     <mat-form-field hintLabel="Minimum 8 characters.">
       <mat-label>Password</mat-label>
-      <input matInput formControlName="password"  type="password" required ngModel placeholder="Password">
+      <input matInput formControlName="password"  type="password" required ngModel placeholder="Password" minlength="8">
     </mat-form-field>
     <mat-form-field>
       <mat-label>KSU ID</mat-label>

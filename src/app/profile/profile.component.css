@@ -599,6 +599,24 @@ textarea.form-control {
   border-radius: .375rem;
 }
 
+.btn1 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  display: inline-block;
+  padding: .625rem 1.25rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: .375rem;
+}
+
 @media screen and (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
@@ -620,9 +638,11 @@ textarea.form-control {
   box-shadow: none;
 }
 
+
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
+
 
 .btn:not(:disabled):not(.disabled):active {
   box-shadow: none;

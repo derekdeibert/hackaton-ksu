@@ -37,17 +37,6 @@ router.get('/all', function(req, res) {
   });
 });
 
-/*
-// User 조회
-router.get('/:id', function(req, res) {
-  IndRegistration.findById(req.params.id, function (err, user) {
-    if (err) return res.status(500).send("User 조회 실패");
-    if (!user) return res.status(404).send("User 없음.");
-    res.status(200).send(user);
-  });
-});
-*/
-
 // Delete Invidual Registration by KSU ID
 router.delete('/delete/:ksuId', function (req, res) {
   IndRegistration.findOneAndDelete({ ksuId: req.params.ksuId}, function (err, user) {
@@ -110,6 +99,14 @@ router.delete('/deleteByTeam/:teamName', function (req, res) {
 
 router.get('/getTeamReg/:teamName', function (req, res) {
   IndRegistration.find({ teamName: req.params.teamName}, req.body, {new: true}, function (err, data) {
+    if (err) return res.status(500).send("There was an error getting the registration for that team name.");
+    res.status(200).send(data);
+  });
+});
+
+// get all teams
+router.get('/getAllTeams',function (req, res) {
+  IndRegistration.find({ teamName: {$exists:true }}, req.body, {new: true}, function (err, data) {
     if (err) return res.status(500).send("There was an error getting the registration for that team name.");
     res.status(200).send(data);
   });
